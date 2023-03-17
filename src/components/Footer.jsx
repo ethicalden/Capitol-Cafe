@@ -1,14 +1,22 @@
 import React from 'react'
+import { Link } from 'react-scroll';
 
 const Footer = () => {
     return (
         <footer className="text-gray-400 bg-gray-900 body-font">
             <div className="container px-5 lg:px-20 py-8 mx-auto flex items-center flex-col sm:flex-row md:justify-between">
-                <nav className="hidden lg:block md:ml-auto  flex-wrap items-center text-base justify-center">
+                {/* <nav className="hidden lg:block md:ml-auto  flex-wrap items-center text-base justify-center">
                     <a className="mr-5 hover:scale-110 text-white cursor-pointer">Home</a>
                     <a className="mr-5 hover:scale-110 text-white cursor-pointer">Menu</a>
                     <a className="mr-5 hover:scale-110 text-white cursor-pointer">About</a>
                     <a className="mr-5 hover:scale-110 text-white cursor-pointer">Contact</a>
+                </nav> */}
+
+                <nav className="flex ml-auto mb-4 md:mb-0 items-center text-base justify-center list-none">
+                    <li><a href="/"><Link activeClass="active" to="home" spy={true} smooth={true} duration={700} className="mr-5 hover:scale-110 text-white cursor-pointer">Home</Link></a></li>
+                    <li><a href="/"><Link activeClass="active" to="menu" spy={true} smooth={true} duration={700} className="mr-5 hover:scale-110 text-white cursor-pointer">Menu</Link></a></li>
+                    <li><a href="/"><Link activeClass="active" to="about" spy={true} smooth={true} duration={700} className="mr-5 hover:scale-110 text-white cursor-pointer">About</Link></a></li>
+                    <li><a href="/"><Link activeClass="active" to="contact" spy={true} smooth={true} duration={700} className="mr-5 hover:scale-110 text-white cursor-pointer">Contact</Link></a></li>
                 </nav>
 
                 <a className="flex title-font font-medium items-center md:justify-start justify-center text-white">
@@ -16,7 +24,7 @@ const Footer = () => {
                         <img src="/static/logo.png" alt="logo" />
                     </span>
                 </a>
-                <p className="text-sm text-white sm:ml-4 sm:pl-4 sm:border-l-2 sm:border-gray-800 sm:py-2 sm:mt-0 mt-4">© 2020 Capitol Cafe
+                <p className="text-sm text-white sm:ml-4 sm:pl-4 sm:border-l-2 sm:border-gray-800 sm:py-2 sm:mt-0 mt-4">© 2023 Capitol Cafe
                 </p>
                 <span className="inline-flex sm:ml-auto sm:mt-0 mt-4 justify-center">
                     <a className="text-white">

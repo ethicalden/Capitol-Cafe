@@ -1,18 +1,17 @@
 import React, { useState } from 'react'
 import { AiOutlineInstagram, AiFillTwitterCircle, AiOutlineWhatsApp } from 'react-icons/ai'
 import { BsFacebook } from 'react-icons/bs'
-import { Link } from 'react-router-dom'
-
+// import { Link } from 'react-router-dom'
+import { Link } from 'react-scroll';
 import { FaHome, FaUserTie } from "react-icons/fa"
 import { MdContactMail } from "react-icons/md"
-import { HiChatAlt } from "react-icons/hi"
 import { AiFillFileText } from "react-icons/ai"
 
 const Navbar = () => {
   return (
-    <div className=''>
-      <div className="mobDesign block lg:hidden"><MobileDesign /></div>
-      <div className="lapDesign hidden lg:block"> <LaptopDesign /></div>
+    <div className=' ' name='home' id='home'>
+      <div className="mobDesign block lg:hidden" name='home' id='home'><MobileDesign /></div>
+      <div className="lapDesign hidden lg:block" name='home' id='home'> <LaptopDesign /></div>
     </div>
   )
 }
@@ -21,10 +20,14 @@ export default Navbar
 
 export const MobileDesign = () => {
   const [navbar, setNavbar] = useState(false)
+
+  const handleItemClick = () => {
+    setNavbar(false)
+  };
   const genericHamburgerLine = `h-[2px] w-5 my-1 rounded-full bg-black transition ease transform duration-300`;
   return (
     <>
-      <div>
+      <div className='' name='home' id='home'>
         <div>
           <img src="/static/banner.png" alt="" />
         </div>
@@ -40,7 +43,7 @@ export const MobileDesign = () => {
             Catering</h1>
           <p className=' md:text-2xl pt-1 md:py-10'>Healthy East African-American</p>
 
-          <button className=' px-6 mt-6 py-2 border border-white rounded-lg hover:scale-110 transition-transform duration-500 transform hover:rotate-12 hover:text-black hover:bg-white'>Order Now</button>
+          <button target='_blank' href="https://capitolcafe.menufy.com/" className=' px-6 mt-6 py-2 border border-white rounded-lg hover:scale-110 transition-transform duration-500 transform hover:rotate-12 hover:text-black hover:bg-white'>Order Now</button>
 
           <div className='flex flex-row mr-auto pl-48 -mt-9 text-3xl md:text-white '>
             <div className=' flex flex-row bg-white text-black rounded-xl px-2 py-[3px]'>
@@ -54,21 +57,21 @@ export const MobileDesign = () => {
       </div>
 
       <div className={`absolute w-full top-0 left-0 z-10 justify-space-evenly overflow-hidden transition duration-[0.5s] ${navbar ? " translate-x-[0]" : " -translate-x-[110%]"}`}>
-        <div className={`flex flex-col text-sec text-[24px] font-[650px] h-screen ease-out w-full bg-white pt-16`}>
+        <div className={`list-none flex flex-col text-sec text-[24px] font-[650px] h-full ease-in-out w-full bg-white`}>
           <div className='ml-3 active:text-pri'>
-            <Link className='nav-links m-2 flex  items-center py-3 hover:text-pri' to="/" onClick={() => setNavbar(false)}><FaHome className='mr-5 ' /> Home</Link>
+            <li className=' active:text-yellow-500 text-yellow-400' ><a href="/"><Link onClick={handleItemClick} activeClass="active" to="home" spy={true} smooth={true} duration={700} className="nav-links m-2 flex  items-center py-3"><FaHome className='mr-5 ' />Home</Link></a></li>
             <hr className='mr-2 border-5 border-[#4d5358]' />
           </div>
           <div className='ml-3 active:text-pri'>
-            <Link className='nav-links m-2 flex items-center py-3 hover:text-pri' to="/about" onClick={() => setNavbar(false)}><FaUserTie className='mr-5' /> Menu</Link>
-            <hr className='mr-2 border-5 border-[#4d5358]' />
-          </div >
-          <div className='ml-3 active:text-pri'>
-            <Link className='nav-links m-2 flex items-center py-3 hover:text-pri' to="/resume" onClick={() => setNavbar(false)}><AiFillFileText className='mr-5' /> About</Link>
+            <li className=' active:text-yellow-500 text-yellow-400' ><a href="/"><Link onClick={handleItemClick} activeClass="active" to="menu" spy={true} smooth={true} duration={700} className="nav-links m-2 flex  items-center py-3"><FaUserTie className='mr-5' />Menu</Link></a></li>
             <hr className='mr-2 border-5 border-[#4d5358]' />
           </div>
           <div className='ml-3 active:text-pri'>
-            <Link className='nav-links m-2 flex items-center py-3 hover:text-pri' to="/contact" onClick={() => setNavbar(false)}><MdContactMail className='mr-5' /> Contact</Link>
+            <li className=' active:text-yellow-500 text-yellow-400'  ><a href="/"><Link onClick={handleItemClick} activeClass="active" to="about" spy={true} smooth={true} duration={700} className="nav-links m-2 flex  items-center py-3"><AiFillFileText className='mr-5' />About</Link></a></li>
+            <hr className='mr-2 border-5 border-[#4d5358]' />
+          </div>
+          <div className='ml-3 active:text-pri'>
+            <li className=' active:text-yellow-500 text-yellow-400' ><a href="/"><Link onClick={handleItemClick} activeClass="active" to="contact" spy={true} smooth={true} duration={700} className="nav-links m-2 flex  items-center py-3"><MdContactMail className='mr-5' />Contact</Link></a></li>
             <hr className='mr-2 border-5 border-[#4d5358]' />
           </div>
         </div>
@@ -112,11 +115,11 @@ export const LaptopDesign = () => {
                 </a>
               </div>
               <div className=' text-center flex place-items-end pb-1 pl-96'>
-                <nav className="  ">
-                  <a className="md:mr-20 hover:text-yellow-400 mb-1 text-xl hover:scale-110 hover:underline-offset-4 cursor-pointer ">Home</a>
-                  <a className="md:mr-20 hover:text-yellow-400 mb-1 text-xl hover:scale-110 cursor-pointer ">Menu</a>
-                  <a className="md:mr-20 hover:text-yellow-400 mb-1 text-xl hover:scale-110 cursor-pointer ">About</a>
-                  <a className="md:mr-20 hover:text-yellow-400 mb-1 text-xl hover:scale-110 cursor-pointer ">Contact</a>
+                <nav className=" flex list-none">
+                  <li><a href="/"><Link activeClass="active" to="home" spy={true} smooth={true} duration={700} className="md:mr-20 hover:text-yellow-400 text-yellow-300 mb-1 text-xl hover:scale-110 cursor-pointer">Home</Link></a></li>
+                  <li><a href="/"><Link activeClass="active" to="menu" spy={true} smooth={true} duration={700} className="md:mr-20 hover:text-yellow-400 text-yellow-300 mb-1 text-xl hover:scale-110 cursor-pointer">Menu</Link></a></li>
+                  <li><a href="/"><Link activeClass="active" to="about" spy={true} smooth={true} duration={700} className="md:mr-20 hover:text-yellow-400 text-yellow-300 mb-1 text-xl hover:scale-110 cursor-pointer">About</Link></a></li>
+                  <li><a href="/"><Link activeClass="active" to="contact" spy={true} smooth={true} duration={700} className="md:mr-20 hover:text-yellow-400 text-yellow-300 mb-1 text-xl hover:scale-110 cursor-pointer">Contact</Link></a></li>
                 </nav>
               </div>
             </div>
@@ -126,7 +129,7 @@ export const LaptopDesign = () => {
           <h1 className=' text-[75px] text-yellow-500 font-bold  '>Capitol Cafe &
             <br />Catering</h1>
           <p className=' md:text-2xl md:py-10'>Healthy East African-American infusion food</p>
-          <button className=' px-6 py-2 border border-white rounded-lg hover:scale-110 transition-transform duration-500 transform hover:rotate-12 hover:text-black hover:bg-white'>Order Now</button>
+          <a target='_blank' href="https://capitolcafe.menufy.com/"><button className=' px-6 py-2 border border-white rounded-lg hover:scale-110 transition-transform duration-500 transform hover:rotate-12 hover:text-black hover:bg-white'>Order Now</button></a>
 
           <div className=' md:flex md:mt-10 text-3xl bg-white text-black w-60 rounded-lg pl-2 py-2'>
             <a href="" className=" mr-8 hover:scale-100 hover:text-yellow-400 transition-transform hover:translate-x-1 hover:-translate-y-1 hover:duration-300"><BsFacebook /></a>
