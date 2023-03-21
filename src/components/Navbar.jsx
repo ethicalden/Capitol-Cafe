@@ -116,10 +116,10 @@ export const LaptopDesign = () => {
               </div>
               <div className=' text-center flex place-items-end pb-1 pl-96'>
                 <nav className=" flex list-none">
-                  <li><a href="/"><Link activeClass="active" to="home" spy={true} smooth={true} duration={700} className="md:mr-20 hover:text-yellow-400 text-yellow-300 mb-1 text-xl hover:scale-110 cursor-pointer">Home</Link></a></li>
-                  <li><a href="/"><Link activeClass="active" to="menu" spy={true} smooth={true} duration={700} className="md:mr-20 hover:text-yellow-400 text-yellow-300 mb-1 text-xl hover:scale-110 cursor-pointer">Menu</Link></a></li>
-                  <li><a href="/"><Link activeClass="active" to="about" spy={true} smooth={true} duration={700} className="md:mr-20 hover:text-yellow-400 text-yellow-300 mb-1 text-xl hover:scale-110 cursor-pointer">About</Link></a></li>
-                  <li><a href="/"><Link activeClass="active" to="contact" spy={true} smooth={true} duration={700} className="md:mr-20 hover:text-yellow-400 text-yellow-300 mb-1 text-xl hover:scale-110 cursor-pointer">Contact</Link></a></li>
+                  <li><a href="/"><Link activeClass="active" to="home" spy={true} smooth={true} duration={800} className="md:mr-20 hover:text-yellow-400 text-yellow-300 mb-1 text-xl hover:scale-110 cursor-pointer">Home</Link></a></li>
+                  <li><a href="/"><Link activeClass="active" to="menu" spy={true} smooth={true} duration={800} className="md:mr-20 hover:text-yellow-400 text-yellow-300 mb-1 text-xl hover:scale-110 cursor-pointer">Menu</Link></a></li>
+                  <li><a href="/"><Link activeClass="active" to="about" spy={true} smooth={true} duration={800} className="md:mr-20 hover:text-yellow-400 text-yellow-300 mb-1 text-xl hover:scale-110 cursor-pointer">About</Link></a></li>
+                  <li><a href="/"><Link activeClass="active" to="contact" spy={true} smooth={true} duration={800} className="md:mr-20 hover:text-yellow-400 text-yellow-300 mb-1 text-xl hover:scale-110 cursor-pointer">Contact</Link></a></li>
                 </nav>
               </div>
             </div>
